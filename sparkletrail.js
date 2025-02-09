@@ -34,11 +34,11 @@ if (ns){
 }
 
 if (ie)
-	document.write('<div id="con" style="position:absolute;top:0px;left:0px"><div style="position:relative">');
+	document.write('<div id="con" style="position:fixed;top:0px;left:0px"><div style="position:relative">');
 
 if (ie||n6){
 	for (i = 0; i < n; i++)
-		document.write('<div id="dots'+i+'" style="position:absolute;top:0px;left:0px;width:'+i/2+'px;height:'+i/2+'px;background:#ff0000;font-size:'+i/2+'"></div>');
+		document.write('<div id="dots'+i+'" style="position:fixed;top:0px;left:0px;width:'+i/2+'px;height:'+i/2+'px;background:#ff0000;font-size:'+i/2+'"></div>');
 }
 
 if (ie)
@@ -242,7 +242,7 @@ function set_width() {
 
 function createDiv(height, width) {
 	var div=document.createElement("div");
-	div.style.position="absolute";
+	div.style.position="fixed";
 	div.style.height=height+"px";
 	div.style.width=width+"px";
 	div.style.overflow="hidden";

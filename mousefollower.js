@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const style = document.createElement("style");
     style.innerHTML = `
         #follower {
-            position: absolute;
+            position: fixed;
             width: 50px;
             height: auto;
             pointer-events: none;
