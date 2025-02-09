@@ -29,6 +29,7 @@
 		font-weight: bold;
 		font-size: 60px;
 		text-transform: uppercase;
+		cursor: url("cursorpulse.gif"), default;
     }
 
 /* container */
@@ -44,7 +45,24 @@
 		color: black;
 		z-index: 0;
 	}
-	.mainwindow:hover {
+	
+/* innercontainer */
+	.innerwindow {
+		text-align: center;
+		cursor: url("bluecursor.gif"), default;
+		position: absolute; 
+		top: 50%;
+		left: 50%;
+		height: 400px ; 
+		width: 600px ;
+		border: 10px dotted white;
+		background-color: black;    
+		background-image: url("startile.gif");
+		background-repeat: repeat;
+		color: black;
+		z-index: 1;
+	}
+	.innerwindow:hover {
 		background-image: url("bwearg.gif");
 	}
 
@@ -61,7 +79,8 @@
 
 <div class="mainwindow">
 
-	<a href="index.html">the civil disobedience</a><br>
+	<a href="index.html">the civil</a><br>
+	<a href="index.html">disobedience</a><br>
 	<a href="index.html">resigns</a><br>
 	<a href="index.html">devils</a><br>
 	<a href="index.html">angels</a><br>
