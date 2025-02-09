@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("mousefollower.js is loaded successfully");
-
     const follower = document.createElement("img");
     follower.id = "follower";
     follower.src = "butterflysmall.gif";
@@ -9,18 +7,46 @@ document.addEventListener("DOMContentLoaded", function () {
     const style = document.createElement("style");
     style.innerHTML = `
         #follower {
-            position: fixed;
+            position: absolute;
             width: 50px;
             height: auto;
             pointer-events: none;
-            transition: transform 0.1s ease-out;
             z-index: 9999;
         }
     `;
     document.head.appendChild(style);
 
+    let followerX = 0;
+    let followerY = 0;
+    let targetX = 0; 
+    let targetY = 0;
+    const speed = 5; 
+
     document.addEventListener("mousemove", (event) => {
-        console.log("Mouse moved:", event.clientX, event.clientY); // Debugging
-        follower.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
+        targetX = event.clientX;
+        targetY = event.clientY;
     });
+
+    function moveFollower() {
+        let deltaX = targetX - followerX;
+        let deltaY = targetY - followerY;
+        
+        if (Math.abs(deltaX) > speed) {
+            followerX += (deltaX > 0) ? speed : -speed;
+        } else {
+            followerX = targetX;
+        }
+
+        if (Math.abs(deltaY) > speed) {
+            followerY += (deltaY > 0) ? speed : -speed;
+        } else {
+            followerY = targetY;
+        }
+
+        follower.style.transform = `translate(${followerX}px, ${followerY}px)`;
+
+        requestAnimationFrame(moveFollower);
+    }
+
+    moveFollower();
 });
