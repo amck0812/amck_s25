@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
             height: auto;
             pointer-events: none; 
             transition: transform 0.1s ease-out;
-            z-index: 1000; 
+            z-index: 9999; 
         }
     `;
     document.head.appendChild(style);
