@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         for (let i = 0; i < particles; i++) {
             let particle = document.createElement("div");
             particle.className = "particle";
-            particle.style.backgroundColor = "rgb(255, 255, 255)"; // White particles
+            particle.style.backgroundColor = "rgb(255, 0, 0)";
 
             let angle = Math.random() * Math.PI * 2;
             let speed = Math.random() * 15 + 5; // Speed of movement
