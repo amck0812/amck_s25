@@ -54,7 +54,7 @@
 		content: url('fireconstant.gif');
 	}
 	
-/* mouse explosion */ 
+/* mouse splatter */ 
 	.explosion {
 	  position: absolute; // required if positioned on click else 'relative'
 	  width: 600px;
@@ -62,20 +62,10 @@
 	  pointer-events: none;
 	  .particle {
 		position: absolute; // required  
-		width: 6px;
-		height: 6px;
+		width: 2px;
+		height: 2px;
 		border-radius: 33%;
 		animation: pop 1s reverse forwards; // required
-	  }
-	}
-	@keyframes pop {
-	  from {
-		opacity: 0;
-	  }
-	  to {
-		top: 50%;
-		left: 50%;
-		opacity: 1;
 	  }
 	}
 </style>
