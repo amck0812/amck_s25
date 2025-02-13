@@ -1,33 +1,39 @@
-$('body').on('click', function(e) {
-  explode(e.pageX, e.pageY);
-})
-function explode(x, y) {
-  var particles = 15,
-    explosion = $('<div class="explosion"></div>');
+document.addEventListener("DOMContentLoaded", function () {
+    document.body.addEventListener("click", function (event) {
+        createExplosion(event.clientX, event.clientY);
+    });
 
-  $('body').append(explosion);
+    function createExplosion(x, y) {
+        const particles = 20; // Number of particles
+        const explosion = document.createElement("div");
+        explosion.className = "explosion";
+        document.body.appendChild(explosion);
 
-  explosion.css('left', x - explosion.width() / 2);
-  explosion.css('top', y - explosion.height() / 2);
+        explosion.style.left = `${x}px`;
+        explosion.style.top = `${y}px`;
 
-  for (var i = 0; i < particles; i++) {
-    var x = (explosion.width() / 2) + rand(80, 150) * Math.cos(2 * Math.PI * i / rand(particles - 10, particles + 10)),
-      y = (explosion.height() / 2) + rand(80, 150) * Math.sin(2 * Math.PI * i / rand(particles - 10, particles + 10)),
-      color = rand(0, 255) + ', ' + rand(0, 255) + ', ' + rand(0, 255), 
-      elm = $('<div class="particle" style="' +
-        'background-color: rgb('255,0,0') ;' +
-        'top: ' + y + 'px; ' +
-        'left: ' + x + 'px"></div>');
+        for (let i = 0; i < particles; i++) {
+            let particle = document.createElement("div");
+            particle.className = "particle";
+            particle.style.backgroundColor = "rgb(255, 255, 255)"; // White particles
 
-    if (i == 0) { 
-      elm.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
-        explosion.remove();
-      });
+            let angle = Math.random() * Math.PI * 2;
+            let speed = Math.random() * 15 + 5; // Speed of movement
+
+            let translateX = Math.cos(angle) * speed;
+            let translateY = Math.sin(angle) * speed;
+
+            particle.style.transform = `translate(${translateX}px, ${translateY}px) scale(1)`;
+            explosion.appendChild(particle);
+
+            setTimeout(() => {
+                particle.style.opacity = "0";
+                particle.style.transform = `translate(${translateX * 5}px, ${translateY * 5}px) scale(0)`;
+            }, 10);
+        }
+
+        setTimeout(() => {
+            explosion.remove();
+        }, 1000);
     }
-    explosion.append(elm);
-  }
-}
-
-function rand(min, max) {
-  return Math.floor(Math.random() * (max + 1)) + min;
-}
+});

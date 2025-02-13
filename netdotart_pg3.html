@@ -45,26 +45,27 @@
 	
 /* mouse splatter */ 
 	.explosion {
-	  position: absolute; // required if positioned on click else 'relative'
-	  width: 600px;
-	  height: 600px;
-	  z-index: 1000;
-	  pointer-events: none;
-	  .particle {
-		position: absolute; // required  
-		width: 2px;
-		height: 2px;
-		border-radius: 33%;
-		animation: pop 1s reverse forwards; // required
-	  }
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		pointer-events: none;
+		z-index: 1000;
 	}
+	.particle {
+		position: absolute;
+		width: 2px; /* Adjust size of particles */
+		height: 2px;
+		background-color: rgb(255, 255, 255);
+		border-radius: 50%;
+		opacity: 1;
+		transition: transform 1s ease-out, opacity 1s ease-out;
+	}
+
 </style>
 
 <body>
 
-<div class="mainwindow">
-
-</div>
+<div class="mainwindow"></div>
 
 <script type="text/javascript" src="mouseexplosion.js"></script>
 
