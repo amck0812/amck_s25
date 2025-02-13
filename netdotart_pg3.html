@@ -42,23 +42,13 @@
 		color: white;
 		z-index: 0;
 	}
-
-/* cherub */
-	.cherub {
-		position: absolute;
-		left: 20px;
-        top: 20px;
-		z-index: 100;
-	}
-	.cherub:hover {
-		content: url('fireconstant.gif');
-	}
 	
 /* mouse splatter */ 
 	.explosion {
 	  position: absolute; // required if positioned on click else 'relative'
 	  width: 600px;
 	  height: 600px;
+	  z-index: 1000;
 	  pointer-events: none;
 	  .particle {
 		position: absolute; // required  
@@ -73,8 +63,6 @@
 <body>
 
 <div class="mainwindow">
-
-
 
 </div>
 
